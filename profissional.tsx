@@ -19,19 +19,31 @@ export default function Profissional() {
           <Ionicons name="heart" size={24} color="white" />
           <Text style = {styles.textoDados}>Área da TI. Pŕedio Guaíra</Text>
         </View>
+        <Text style = {styles.linha}>
+          _______________________________________
+        </Text>
         <View style = {styles.containerDados}>
           <Ionicons name="heart" size={24} color="white" />
           <Text style = {styles.textoDados}>Robótica</Text>
         </View>
+        <Text style = {styles.linha}>
+          _______________________________________
+        </Text>
         <View style = {styles.containerDados}>
           <Ionicons name="heart" size={24} color="white" />
           <Text style = {styles.textoDados}>Ensino médio com Técnico de Análise e Projetos de Sistemas</Text>
         </View>
+                <Text style = {styles.linha}>
+          _______________________________________
+        </Text>
+        
         <View style = {styles.containerDados}>
           <Ionicons name="heart" size={24} color="white" />
           <Text style = {styles.textoDados}>Kirici</Text>
         </View>
-        
+        <Text style = {styles.linha}>
+          _______________________________________
+        </Text>
       </View>
     </View>
   );
@@ -53,13 +65,16 @@ const styles = StyleSheet.create({
     height: 300,
   },
   containerConteudo: {
-    flex: 1
+    flex: 1,
+    marginLeft: 20,
+  
   },
   containerNome:{
+    marginTop: 20,
     alignItems:"center",
   },
   nome: {
-    fontSize: 40,
+    fontSize: 30,
     color: "white",
     fontWeight: "bold",
   },
