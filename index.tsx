@@ -1,17 +1,35 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
-
+import { StyleSheet, Text, View, Button, Pressable} from "react-native";
+import * as ImagePicker from 'expo-image-picker';
+import { useState } from 'react';
 // npm install expo-image (usar este código no terminal)
 
 const foto = require("../../assets/images/fofa.jpeg")
 
 export default function Index() {
+  const [image, setImage] = useState<string | null>(null);
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images', 'videos'],
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+    console.log(result);
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
   return (
     <View style={styles.container} >
       <View style = {styles.containerImg}>
-        <Image source = {foto} style={styles.estiloFoto}></Image>
-      </View>
+        <Pressable onPress={pickImage}>
+          <Image source = {image == null ? foto : image} style={styles.estiloFoto}></Image>
+        </Pressable>
+        <Button title="Trocar imagem" onPress={pickImage} />
+    </View>
       <View style = {styles.containerConteudo}>
         <View style = {styles.containerNome}>
           <Text style={styles.nome}>Emily Emanuelle Savczuk</Text>
